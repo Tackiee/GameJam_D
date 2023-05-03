@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartSenceManeger : MonoBehaviour
+public class StartSceneManegerScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -19,5 +19,10 @@ public class StartSenceManeger : MonoBehaviour
             SceneManager.LoadScene("plaier move");
 
         }
+    }
+
+    public void MovetoStory()
+    {
+        SceneManager.LoadScene("Story_Scene");
     }
 }
