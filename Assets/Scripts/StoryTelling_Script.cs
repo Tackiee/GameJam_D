@@ -7,7 +7,9 @@ public class StoryTelling_Script : MonoBehaviour
 {
     [SerializeField] Text zunda_text;
     private string[] wordArray;
-    private string words;
+    private string words = "ç°,ì˙,ÇÕ,Ç∆,Çƒ,Ç‡,ìV,ãC,Ç™,Ç¢,Ç¢,ÇÃ,Çæ,\n";
+
+    private bool clickPrevent = false;
 
     void Start()
     {
@@ -18,8 +20,18 @@ public class StoryTelling_Script : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            clickPrevent = true;
             wordArray = words.Split(',');
             StartCoroutine("SetText");
+            string[] removeChars = { "," };
+            foreach (string c in removeChars)
+            {
+                words = words.Replace(c.ToString(), "");
+            }
+            if(zunda_text.ToString() == words)
+            {
+                clickPrevent = false;
+            }
         }
     }
 
