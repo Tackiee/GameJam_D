@@ -31,7 +31,7 @@ public class PlayTimeManager : MonoBehaviour
         count = py.GetCount;
         if (checker && !GameFinish)
         {
-            TimerText.text = timer.ToString();
+            TimerText.text = timer.ToString("f0");
             timer -= Time.deltaTime;
             if (timer < 0)
             {

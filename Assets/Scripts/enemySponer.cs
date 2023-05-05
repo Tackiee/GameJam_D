@@ -13,7 +13,7 @@ public class enemySponer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemyTime = 0.2f;
+        enemyTime = 0.3f;
     }
 
     // Update is called once per frame
@@ -26,7 +26,7 @@ public class enemySponer : MonoBehaviour
             if (enemyTime < 0)
             {
                 Instantiate(enemyPrefab, this.transform.position + new Vector3(Random.Range(-20.0f, 20.0f), 10, Random.Range(-20.0f, 20.0f)), this.transform.rotation);
-                enemyTime = 0.23f;
+                enemyTime = 0.3f;
             }
         }
         

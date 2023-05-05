@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 {
@@ -38,7 +39,12 @@ public class player : MonoBehaviour
 
     void Update()
     {
-        count.text = "スコア: " + zundacount.ToString();
+        Vector3 currentPos = transform.position;
+        currentPos.x = Mathf.Clamp(currentPos.x, 26f, 72f);
+        currentPos.z = Mathf.Clamp(currentPos.z, 25f, 70f);
+        transform.position = currentPos;
+
+        count.text = "ずんだポイント: " + zundacount.ToString();
         checker = countDown.startChecker;
         if(checker)
         {
@@ -90,6 +96,11 @@ public class player : MonoBehaviour
             }
         }
 
+        if(lifePoint == 0)
+        {
+            SceneManager.LoadScene("GameOver_Scene");
+        }
+
     }
 
     void OnTriggerStay(Collider other)
@@ -120,7 +131,6 @@ public class player : MonoBehaviour
     public void speedUp(int s)
     {
         StartCoroutine(speedChange(s));
-
     }
 
     public IEnumerator speedChange(int k)
