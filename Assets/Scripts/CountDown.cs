@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class CountDown : MonoBehaviour
 {
 	private bool countFinish = false;
+	[SerializeField] AudioSource count321;
+	[SerializeField] AudioSource count0;
 	public bool startChecker
 	{
 		get { return this.countFinish; }
@@ -29,27 +31,23 @@ public class CountDown : MonoBehaviour
 
 	IEnumerator CountdownCoroutine()
 	{
-		Debug.Log("5");
-		CountText.text = "5";
-		yield return new WaitForSeconds(1.0f);
-		
-		Debug.Log("4");
-		CountText.text = "4";
-		yield return new WaitForSeconds(1.0f);
-
 		Debug.Log("3");
 		CountText.text = "3";
+		count321.Play();
 		yield return new WaitForSeconds(1.0f);
 
 		Debug.Log("2");
 		CountText.text = "2";
+		count321.Play();
 		yield return new WaitForSeconds(1.0f);
 
 		Debug.Log("1");
 		CountText.text = "1";
+		count321.Play();
 		yield return new WaitForSeconds(1.0f);
 
 		Debug.Log("GO!");
+		count0.Play();
 		CountText.text = "GO!";
 		countFinish = true;
 		yield return new WaitForSeconds(2.0f);

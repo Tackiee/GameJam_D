@@ -9,6 +9,9 @@ public class PlayTimeManager : MonoBehaviour
     public CountDown countDown;
     public Text TimerText;
 
+    public player py;
+    int count;
+
     public float timer = 60.0f;
     float stay = 2.0f;
     bool checker;
@@ -25,6 +28,7 @@ public class PlayTimeManager : MonoBehaviour
         
         Debug.Log(timer);
         checker = countDown.startChecker;
+        count = py.GetCount;
         if (checker && !GameFinish)
         {
             TimerText.text = timer.ToString();
@@ -46,4 +50,6 @@ public class PlayTimeManager : MonoBehaviour
             }
         }
     }
+
+
 }

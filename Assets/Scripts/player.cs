@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class player : MonoBehaviour
 {
@@ -14,18 +15,30 @@ public class player : MonoBehaviour
     private Vector2 lastMousePosition;
     private Vector2 newAngle = Vector2.zero;
     public GameObject[] lifeArray = new GameObject[3];
+    [SerializeField] AudioSource zundaVoice;
+    [SerializeField] AudioSource zundaKoukaon;
     private int lifePoint = 3;
     private Rigidbody rb;
     private bool isGround;
+
+    [SerializeField] Text count;
+    private int zundacount;
     
+    public int GetCount
+    {
+        get { return zundacount; }
+    }
+
     void Start()
     {
+        zundacount = 0;
         mainCamera = Camera.main;
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
+        count.text = "ÉXÉRÉA: " + zundacount.ToString();
         checker = countDown.startChecker;
         if(checker)
         {
@@ -95,6 +108,15 @@ public class player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "zunda")
+        {
+            zundaKoukaon.Play();
+            zundacount++;
+        }
+    }
+
     public void speedUp(int s)
     {
         StartCoroutine(speedChange(s));
@@ -123,6 +145,7 @@ public class player : MonoBehaviour
         {
             Debug.Log("Hit");
             lifeArray[lifePoint - 1].SetActive(false);
+            zundaVoice.Play();
             lifePoint--;
         }
 
