@@ -20,4 +20,14 @@ public class RuleSceneManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene("playFild");
     }
+
+    public void MovetoOperation()
+    {
+        SceneManager.LoadScene("OperationManual_Scene");
+    }
+
+    public void MovetoItem()
+    {
+        SceneManager.LoadScene("ItemManual_Scene");
+    }
 }

@@ -3069,7 +3069,7 @@ BoxCollider:
   m_GameObject: {fileID: 1807346596}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.1, y: 82.09, z: 94}
   m_Center: {x: -269, y: -91.67, z: 131.8}
@@ -3082,7 +3082,7 @@ BoxCollider:
   m_GameObject: {fileID: 1807346596}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 2.1, y: 82.09, z: 94}
   m_Center: {x: -322.7, y: -91.67, z: 131.8}
@@ -3095,7 +3095,7 @@ BoxCollider:
   m_GameObject: {fileID: 1807346596}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 124.447495, y: 82.09, z: 1.7015305}
   m_Center: {x: -296.17, y: -91.67, z: 160.4}
@@ -3108,10 +3108,10 @@ BoxCollider:
   m_GameObject: {fileID: 1807346596}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 124.447495, y: 82.09, z: 1.7015305}
-  m_Center: {x: -296.17, y: -91.67, z: 108.8}
+  m_Center: {x: -296.17, y: -91.67, z: 100.5}
 --- !u!64 &1849114288
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3418,6 +3418,52 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 89ede9256fbfe8d70b1fdbe58d46b263, type: 3}
+--- !u!1 &1896300495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1896300497}
+  - component: {fileID: 1896300496}
+  m_Layer: 0
+  m_Name: ZundaSpowner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1896300496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896300495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a734b28d19a284185845a7638fd9c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zundaPrefab: {fileID: 4090707403516045985, guid: c25933d56617d784580059723f45be7d, type: 3}
+  countDown: {fileID: 1641102827}
+--- !u!4 &1896300497
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896300495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 48.82, y: 1, z: 46.02}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1915896221
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14070,7 +14116,7 @@ GameObject:
   - component: {fileID: 9070872705046816683}
   m_Layer: 0
   m_Name: zunda
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

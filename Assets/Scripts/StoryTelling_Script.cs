@@ -10,11 +10,12 @@ public class StoryTelling_Script : MonoBehaviour
 
     public GameObject Button;
     public GameObject SceneButton;
-    public GameObject[] zundaPic;
+    [SerializeField] GameObject[] zundaPic = new GameObject[5];
+    [SerializeField] AudioSource[] zundaVoice = new AudioSource[5];
 
     private string[] zunda_word = { "今日はとても天気がいいのだ" ,
                                     "こんな日はずんだもちを食べてお花見するのに限るのだ",
-                                    "世間はさくらもちを食えとかほざくけど、頭が沸いてるとしか思えないのだ",
+                                    "世間は、さくらもちを食えとか言ってくるけど、何も分かっていないのだ",
                                     "だけど、ずんだもちが花びらまみれになったら台無しなのだ",
                                     "さくらの花びらがつかないようにして、おいしいずんだもちを食べたいのだ"
                                   };
@@ -26,6 +27,7 @@ public class StoryTelling_Script : MonoBehaviour
     {
         Button.SetActive(false);
         SceneButton.SetActive(false);
+        zundaVoice[i].Play();
         StartCoroutine(DisplaySentence());
     }
 
@@ -41,7 +43,7 @@ public class StoryTelling_Script : MonoBehaviour
             foreach (char x in zunda_word[i].ToCharArray())
             {
                 zunda_text.text += x; //1文字ずつ追加
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.15f);
             }
             Button.SetActive(true);
         }
@@ -50,7 +52,7 @@ public class StoryTelling_Script : MonoBehaviour
             foreach (char x in zunda_word[i].ToCharArray())
             {
                 zunda_text.text += x; //1文字ずつ追加
-                yield return new WaitForSeconds(0.1f);
+                yield return new WaitForSeconds(0.15f);
             }
             SceneButton.SetActive(true);
         }
@@ -63,6 +65,9 @@ public class StoryTelling_Script : MonoBehaviour
         if (i < zunda_word.Length - 1) //最後の文章でないなら
         {
             i++;
+            zundaPic[i - 1].SetActive(false);
+            zundaPic[i].SetActive(true);
+            zundaVoice[i].Play();
             zunda_text.text = ""; //現在の文章を白紙に
             StartCoroutine(DisplaySentence()); //次の文字送り開始
         }
