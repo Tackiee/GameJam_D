@@ -866,7 +866,7 @@ MonoBehaviour:
   countDown: {fileID: 1641102827}
   TimerText: {fileID: 278165499}
   py: {fileID: 9070872705046816685}
-  timer: 60
+  timer: 20
 --- !u!4 &659497899
 Transform:
   m_ObjectHideFlags: 0

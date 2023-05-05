@@ -10,7 +10,7 @@ public class PlayTimeManager : MonoBehaviour
     public Text TimerText;
 
     public player py;
-    int count;
+    public static int count;
 
     public float timer = 60.0f;
     float stay = 2.0f;

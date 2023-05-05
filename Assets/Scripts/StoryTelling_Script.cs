@@ -14,10 +14,10 @@ public class StoryTelling_Script : MonoBehaviour
     [SerializeField] AudioSource[] zundaVoice = new AudioSource[5];
 
     private string[] zunda_word = { "今日はとても天気がいいのだ" ,
-                                    "こんな日はずんだもちを食べてお花見するのに限るのだ",
+                                    "こんな日は、ずんだもちを食べてお花見するのに限るのだ",
                                     "世間は、さくらもちを食えとか言ってくるけど、何も分かっていないのだ",
                                     "だけど、ずんだもちが花びらまみれになったら台無しなのだ",
-                                    "さくらの花びらがつかないようにして、おいしいずんだもちを食べたいのだ"
+                                    "さくらの花びらがつかないようにしておいしいずんだもちを食べたいのだ"
                                   };
     private string show_word;
 
