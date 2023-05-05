@@ -9,7 +9,10 @@ public class StoryTelling_Script : MonoBehaviour
     private string[] wordArray;
     private string words = "今,日,は,と,て,も,天,気,が,い,い,の,だ,\n";
 
-    private bool clickPrevent = false;
+    private string[] zunda_word;
+    private string show_word;
+
+    int say_num = 0;
 
     void Start()
     {
@@ -20,18 +23,13 @@ public class StoryTelling_Script : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            clickPrevent = true;
-            wordArray = words.Split(',');
-            StartCoroutine("SetText");
-            string[] removeChars = { "," };
-            foreach (string c in removeChars)
-            {
-                words = words.Replace(c.ToString(), "");
-            }
-            if(zunda_text.ToString() == words)
-            {
-                clickPrevent = false;
-            }
+
+           /*方針：サンプルの文字の長さと現在の文字の長さが異なる間は回す
+            * 一致したら、次の文章を挿入
+            * クリックが開始以外の時にされたら、文章を最後まで表示
+            */
+           
+
         }
     }
 
