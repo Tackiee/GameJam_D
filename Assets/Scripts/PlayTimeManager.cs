@@ -9,7 +9,7 @@ public class PlayTimeManager : MonoBehaviour
     public CountDown countDown;
     public Text TimerText;
 
-    float timer = 10.0f;
+    public float timer = 60.0f;
     float stay = 2.0f;
     bool checker;
     bool GameFinish = false;
