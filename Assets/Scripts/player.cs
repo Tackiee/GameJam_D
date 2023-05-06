@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class player : MonoBehaviour
 {
     public CountDown countDown;
+    public PlayTimeManager ptm;
     bool checker;
     public static int speed = 5;
     public Vector2 rotationSpeed = new Vector2(0.1f, 0.1f);
@@ -39,66 +40,69 @@ public class player : MonoBehaviour
 
     void Update()
     {
-        Vector3 currentPos = transform.position;
-        currentPos.x = Mathf.Clamp(currentPos.x, 26f, 72f);
-        currentPos.z = Mathf.Clamp(currentPos.z, 25f, 70f);
-        transform.position = currentPos;
-
-        count.text = "ずんだポイント: " + zundacount.ToString();
-        checker = countDown.startChecker;
-        if(checker)
+        if(ptm.SendTime > 0)
         {
-            if (Input.GetKey(KeyCode.W))
-            {
-                this.transform.position += new Vector3(0, 0, speed * Time.deltaTime);
-            }
-            if (Input.GetKey(KeyCode.S))
-            {
-                this.transform.position -= new Vector3(0, 0, speed * Time.deltaTime);
-            }
-            if (Input.GetKey(KeyCode.A))
-            {
-                this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
-            }
-            if (Input.GetKey(KeyCode.D))
-            {
-                this.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
-            }
+            Vector3 currentPos = transform.position;
+            currentPos.x = Mathf.Clamp(currentPos.x, 26f, 72f);
+            currentPos.z = Mathf.Clamp(currentPos.z, 25f, 70f);
+            transform.position = currentPos;
 
-            if (Input.GetKeyDown(KeyCode.Space) && isGround)
+            count.text = "ずんだポイント: " + zundacount.ToString();
+            checker = countDown.startChecker;
+            if (checker)
             {
-                rb.AddForce(new Vector3(0, speed * 100, 0));
-            }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                newAngle = mainCamera.transform.localEulerAngles;
-                lastMousePosition = Input.mousePosition;
-            }
-            else if (Input.GetMouseButton(0))
-            {
-                if (!reverse)
+                if (Input.GetKey(KeyCode.W))
                 {
-                    newAngle.y -= (lastMousePosition.x - Input.mousePosition.x) * rotationSpeed.y;
-                    newAngle.x -= (Input.mousePosition.y - lastMousePosition.y) * rotationSpeed.x;
+                    this.transform.position += new Vector3(0, 0, speed * Time.deltaTime);
+                }
+                if (Input.GetKey(KeyCode.S))
+                {
+                    this.transform.position -= new Vector3(0, 0, speed * Time.deltaTime);
+                }
+                if (Input.GetKey(KeyCode.A))
+                {
+                    this.transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+                }
+                if (Input.GetKey(KeyCode.D))
+                {
+                    this.transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+                }
 
-                    mainCamera.transform.localEulerAngles = newAngle;
+                if (Input.GetKeyDown(KeyCode.Space) && isGround)
+                {
+                    rb.AddForce(new Vector3(0, speed * 100, 0));
+                }
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    newAngle = mainCamera.transform.localEulerAngles;
                     lastMousePosition = Input.mousePosition;
                 }
-                else
+                else if (Input.GetMouseButton(0))
                 {
-                    newAngle.y -= (Input.mousePosition.x - lastMousePosition.x) * rotationSpeed.y;
-                    newAngle.x -= (lastMousePosition.y - Input.mousePosition.y) * rotationSpeed.x;
+                    if (!reverse)
+                    {
+                        newAngle.y -= (lastMousePosition.x - Input.mousePosition.x) * rotationSpeed.y;
+                        newAngle.x -= (Input.mousePosition.y - lastMousePosition.y) * rotationSpeed.x;
 
-                    mainCamera.transform.localEulerAngles = newAngle;
-                    lastMousePosition = Input.mousePosition;
+                        mainCamera.transform.localEulerAngles = newAngle;
+                        lastMousePosition = Input.mousePosition;
+                    }
+                    else
+                    {
+                        newAngle.y -= (Input.mousePosition.x - lastMousePosition.x) * rotationSpeed.y;
+                        newAngle.x -= (lastMousePosition.y - Input.mousePosition.y) * rotationSpeed.x;
+
+                        mainCamera.transform.localEulerAngles = newAngle;
+                        lastMousePosition = Input.mousePosition;
+                    }
                 }
             }
-        }
 
-        if(lifePoint == 0)
-        {
-            SceneManager.LoadScene("GameOver_Scene");
+            if (lifePoint == 0)
+            {
+                SceneManager.LoadScene("GameOver_Scene");
+            }
         }
 
     }

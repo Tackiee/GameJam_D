@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/playFild.unity
     guid: 70012d8cd47abc04b97402035a037ea8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ItemManual_Scene.unity
     guid: 7191463744a0c204e83ac2b19614ea81
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/OperationManual_Scene.unity
     guid: 43a31120c038a2c4db44e93ee07b9880
   - enabled: 1

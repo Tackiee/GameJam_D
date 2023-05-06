@@ -13,6 +13,10 @@ public class PlayTimeManager : MonoBehaviour
     public static int count;
 
     public float timer = 60.0f;
+    public float SendTime
+    {
+        get { return timer; }
+    }
     float stay = 2.0f;
     bool checker;
     bool GameFinish = false;
